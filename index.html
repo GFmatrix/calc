@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+  <style>
+    body{background-color: #000;}
+.btn-dark-gray{
+  background-color: #3d3d3d;
+  transition: .1s;
+}.btn-dark-gray:hover{
+  background-color: #535353;
+}
+  </style>
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-3">
+      <textarea name="" id="inp" class="w-100 valu" rows="3"></textarea>
+      <div class="d-flex justify-content-between w-100 mt-1">
+        <button class="but btn-dark-gray" onclick="son('^')">xⁿ</button>
+        <button class="but btn-dark-gray" onclick="sq()">√x</button>
+        <button class="but btn-dark-gray" onclick="clear5()">C</button>
+        <button class="but btn-dark-gray" onclick="back()">⇐</button>
+      </div>
+      <div class="d-flex justify-content-between w-100 mt-1">
+        <button class="but btn-gray" onclick="son(7)">7</button>
+        <button class="but btn-gray" onclick="son(8)">8</button>
+        <button class="but btn-gray" onclick="son(9)">9</button>
+        <button class="but btn-dark-gray" onclick="son('/')">÷</button>
+      </div>
+      <div class="d-flex justify-content-between w-100 mt-1">
+        <button class="but btn-gray" onclick="son(4)">4</button>
+        <button class="but btn-gray" onclick="son(5)">5</button>
+        <button class="but btn-gray" onclick="son(6)">6</button>
+        <button class="but btn-dark-gray" onclick="son('*')">×</button>
+      </div>
+      <div class="d-flex justify-content-between w-100 mt-1">
+        <button class="but btn-gray" onclick="son(1)">1</button>
+        <button class="but btn-gray" onclick="son(2)">2</button>
+        <button class="but btn-gray" onclick="son(3)">3</button>
+        <button class="but btn-dark-gray" onclick="son('-')">-</button>
+      </div>
+      <div class="d-flex justify-content-between w-100 mt-1">
+        <button class="but btn-gray w-49" onclick="son(0)">0</button>
+        <button class="but btn-gray" onclick="son('.')">.</button>
+        <button class="but btn-dark-gray" onclick="son('+')">+</button>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between w-100">
+        <div class="d-flex flex-wrap justify-content-between w-75">
+          <div class="d-flex justify-content-between w-100 mt-1" id="k1">
+            <button class="but btn-dark-gray w-49" onclick="bin()">BIN</button>
+            <button class="but btn-dark-gray w-49" onclick="oct()">OCT</button>
+          </div>
+          <div class="d-flex justify-content-between w-100 mt-1"  id="k2">
+            <button class="but btn-dark-gray w-49" onclick="sin()">SIN</button>
+            <button class="but btn-dark-gray w-49" onclick="cos()">COS</button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between w-24 mt-1" id="k3">
+          <button class="but btn-sun w-100 h-100" onclick="teng()">=</button>
+        </div>
+        <script>
+          let hhad = document.getElementById('k1').offsetHeight + document.getElementById('k2').offsetHeight + '0.5rem';
+          document.getElementById('k3').style.height = hhad+'px';
+        </script>
+      </div>
+    </div>
+  </div>
+<script>
+let valfor = "";
+let a = '';
+function clear5(){
+  document.getElementById('inp').value = "";
+  valfor = "";
+}
+function son(a){
+  switch (a) {
+    case '*':
+      document.getElementById('inp').value += '×';
+      valfor += '*';
+      break;
+    case '/':
+      document.getElementById('inp').value += '÷';
+      valfor += '/';
+      break;
+    case '^':
+      document.getElementById('inp').value += '^';
+      valfor += '**';
+      break;
+    default:
+      document.getElementById('inp').value += a;
+      valfor += a;
+      break;
+  }}
+function teng(){
+  console.log(valfor);
+  document.getElementById('inp').value = eval(valfor);
+}
+function sq(){
+  valfor = document.getElementById('inp').value;
+  document.getElementById('inp').value = Math.sqrt(eval(valfor));
+}
+function back(){
+  valfor = document.getElementById('inp').value;
+  document.getElementById('inp').value = document.getElementById('inp').value.slice(0, -1);
+}
+function bin(){
+  valfor = document.getElementById('inp').value;
+  document.getElementById('inp').value = eval(valfor).toString(2);
+}
+function oct(){
+  valfor = document.getElementById('inp').value;
+  document.getElementById('inp').value = eval(valfor).toString(8);
+}
+function sin(){
+  valfor = document.getElementById('inp').value;
+  document.getElementById('inp').value = Math.sin(eval(valfor));
+}
+function cos(){
+  valfor = document.getElementById('inp').value;
+  document.getElementById('inp').value = Math.cos(eval(valfor));
+}
+</script>
+
+
+
+</body>
+</html>
